@@ -20,9 +20,16 @@ bool TraUpdater::updateTraFile(const std::string& path_file, const std::string& 
         return false;
     }
     
-    // 无论是否处理重复状态，文件更新阶段都使用相同的逻辑
-    // 只更新第一次出现状态的转移概率，重复状态的处理在运行时进行
-    std::map<int, int> real_trans = generateFirstOccurrenceTransitions(path_states);
+    // 根据handle_repeated_states参数决定使用第一次还是最后一次转移
+    std::map<int, int> real_trans;
+    if (handle_repeated_states) {
+        // 使用--repeated：使用第一次出现的转移
+        real_trans = generateFirstOccurrenceTransitions(path_states);
+    } else {
+        // 不使用--repeated：使用最后一次出现的转移
+        real_trans = generateLastOccurrenceTransitions(path_states);
+    }
+    
     std::set<int> from_in_path;
     for (const auto& pair : real_trans) {
         from_in_path.insert(pair.first);
@@ -84,6 +91,23 @@ std::map<int, int> TraUpdater::generateFirstOccurrenceTransitions(const std::vec
     std::cout << "[TraUpdater] First occurrence transitions: " << first_occurrence_trans.size() 
               << " (from " << path_states.size() << " total states)" << std::endl;
     return first_occurrence_trans;
+}
+
+std::map<int, int> TraUpdater::generateLastOccurrenceTransitions(const std::vector<int>& path_states) {
+    std::map<int, int> last_occurrence_trans;
+    
+    // 遍历路径，每次都覆盖之前的转移，最终保留最后一次出现的转移
+    for (size_t i = 1; i < path_states.size(); ++i) {
+        int from_state = path_states[i-1];
+        int to_state = path_states[i];
+        
+        // 覆盖记录，保留最后一次转移
+        last_occurrence_trans[from_state] = to_state;
+    }
+    
+    std::cout << "[TraUpdater] Last occurrence transitions: " << last_occurrence_trans.size() 
+              << " (from " << path_states.size() << " total states)" << std::endl;
+    return last_occurrence_trans;
 }
 
 bool TraUpdater::processTraFileStandard(const std::string& tra_file, const std::string& output_file,
@@ -192,23 +216,12 @@ bool TraUpdater::processTraFileWithRepeatedStates(const std::string& tra_file, c
         
         // 检查这个状态是否在路径中
         if (actual_transitions.count(from)) {
-            // 状态在路径中
-            if (truly_repeated_states.count(from)) {
-                // 真正的重复状态：使用原始概率
-                auto key = std::make_pair(from, to);
-                if (original_probs.count(key)) {
-                    tra_out << from << " " << to << " " << original_probs[key] << std::endl;
-                } else {
-                    tra_out << from << " " << to << " " << prob << std::endl;
-                }
+            // 状态在路径中：根据实际转移设为0/1
+            int actual_to = actual_transitions[from];
+            if (actual_to == to) {
+                tra_out << from << " " << to << " 1" << std::endl;
             } else {
-                // 非重复状态：根据实际转移设为0/1
-                int actual_to = actual_transitions[from];
-                if (actual_to == to) {
-                    tra_out << from << " " << to << " 1" << std::endl;
-                } else {
-                    tra_out << from << " " << to << " 0" << std::endl;
-                }
+                tra_out << from << " " << to << " 0" << std::endl;
             }
         } else {
             // 不在路径中的状态：保持原始概率

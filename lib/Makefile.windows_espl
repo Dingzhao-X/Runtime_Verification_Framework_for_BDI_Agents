@@ -1,6 +1,6 @@
-# 静态库构建 Makefile - Linux版本
+# 静态库构建 Makefile - 修复版
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -O2 -Iinclude -fPIC
+CXXFLAGS = -std=c++17 -Wall -O2 -Iinclude -static-libgcc -static-libstdc++
 
 # 目录定义
 SRC_DIR = src
@@ -42,12 +42,12 @@ all: dirs $(LIB_NAME)
 
 # 创建目录
 dirs:
-	@mkdir -p $(OBJ_DIR)
+	@if not exist "$(OBJ_DIR)" mkdir "$(OBJ_DIR)"
 
 # 构建静态库
 $(LIB_NAME): dirs $(OBJECTS)
 	ar rcs $@ $(OBJECTS)
-	@echo "Static library $(LIB_NAME) created successfully with all 4 components!"
+	@echo Static library $(LIB_NAME) created successfully with all 4 components!
 
 # 编译目标文件规则
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADERS)
@@ -55,26 +55,26 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADERS)
 
 # 清理
 clean:
-	@rm -f $(OBJ_DIR)/*.o
-	@rm -f $(LIB_NAME)
-	@echo "Cleaned build files"
+	@if exist "$(OBJ_DIR)\*.o" del /q "$(OBJ_DIR)\*.o"
+	@if exist "$(LIB_NAME)" del /q "$(LIB_NAME)"
+	@echo Cleaned build files
 
 # 安装到父目录（方便使用）
 install: $(LIB_NAME)
-	cp $(LIB_NAME) ../
-	cp -r include/* ../include/
-	@echo "Library and headers installed to parent directory"
+	copy $(LIB_NAME) ..\
+	xcopy /Y /S include ..\include\
+	@echo Library and headers installed to parent directory
 
 # 显示帮助
 help:
-	@echo "Available targets:"
-	@echo "  all     - Build the static library"
-	@echo "  clean   - Remove build files"
-	@echo "  install - Copy library and headers to parent directory"
-	@echo "  dirs    - Create necessary directories"
-	@echo "  help    - Show this help"
-	@echo ""
-	@echo "Current configuration:"
-	@echo "  Compiler: $(CXX)"
-	@echo "  Flags: $(CXXFLAGS)"
-	@echo "  Library: $(LIB_NAME)" 
+	@echo Available targets:
+	@echo   all     - Build the static library
+	@echo   clean   - Remove build files  
+	@echo   install - Copy library and headers to parent directory
+	@echo   dirs    - Create necessary directories
+	@echo   help    - Show this help
+	@echo.
+	@echo Current configuration:
+	@echo   Compiler: $(CXX)
+	@echo   Flags: $(CXXFLAGS)
+	@echo   Library: $(LIB_NAME) 

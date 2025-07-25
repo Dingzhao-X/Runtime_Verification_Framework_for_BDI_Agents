@@ -1,0 +1,9 @@
+P=? [ F "final_success" ];
+P=? [ F "loop_state" ];
+P=? [ F "branch_A" ];
+P=? [ F "branch_B" ];
+
+label "final_success" = x=7;
+label "loop_state" = x=1;
+label "branch_A" = x=3|x=5;
+label "branch_B" = x=4|x=6; 

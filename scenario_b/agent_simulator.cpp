@@ -35,25 +35,44 @@ private:
         return ""; // 当前目录
     }
     
-    // 从最新的.pm文件读取转移概率（使用文件锁）
+    // 从模型文件读取转移概率，并尝试从updated版本更新模型（使用文件锁）
     void loadLatestModel() {
         // 如果model_file包含路径，就使用完整路径；否则使用输出目录
         string model_path = (model_file.find('/') != string::npos || model_file.find('\\') != string::npos) ? 
                            model_file : (output_directory + model_file);
         
-        // 首先尝试加载原始版本的PM文件
-        string original_path = model_path;
-        size_t updated_pos = original_path.find("_updated.pm");
-        if (updated_pos != string::npos) {
-            original_path = original_path.substr(0, updated_pos) + ".pm";
+        // 尝试从updated版本更新当前模型
+        string updated_path = model_path;
+        size_t dot_pos = updated_path.find_last_of(".");
+        if (dot_pos != string::npos) {
+            updated_path = updated_path.substr(0, dot_pos) + "_updated.pm";
             
-            // 检查原始文件是否存在
-            ifstream check_original(original_path);
-            if (check_original.good()) {
-                cout << "[Agent] Found original PM file, using: " << original_path << endl;
-                model_path = original_path;
+            // 检查updated文件是否存在且比原文件新
+            ifstream check_updated(updated_path);
+            if (check_updated.good()) {
+                check_updated.close();
+                
+                // 使用文件锁将updated文件覆盖到原文件
+                FileLock updated_lock(updated_path);
+                FileLock original_lock(model_path);
+                try {
+                    FileGuard updated_guard(updated_lock, 2000);
+                    FileGuard original_guard(original_lock, 2000);
+                    
+                    // 复制updated文件内容到原文件
+                    ifstream src(updated_path, ios::binary);
+                    ofstream dst(model_path, ios::binary);
+                    if (src.is_open() && dst.is_open()) {
+                        dst << src.rdbuf();
+                        cout << "[Agent] Model updated from " << updated_path << " to " << model_path << endl;
+                    }
+                    src.close();
+                    dst.close();
+                    
+                } catch (const std::exception& e) {
+                    cout << "[Agent] Failed to update model: " << e.what() << endl;
+                }
             }
-            check_original.close();
         }
         
         // 使用文件锁保护PM文件读取
@@ -274,7 +293,7 @@ int main(int argc, char* argv[]) {
     cout << "=== BDI Agent Real-time Simulator ===" << endl;
     
     string path_file = "../data/default_data/shared_path.txt";
-    string model_file = "../data/default_data/ProD_CUD_SMP_updated.pm";  // 默认使用更新后的模型
+    string model_file = "../data/default_data/ProD_CUD_SMP.pm";  // 默认使用原始模型
     int max_steps = 30;
     int interval = 3000; // 3秒
     
@@ -293,7 +312,7 @@ int main(int argc, char* argv[]) {
             cout << "Usage: " << argv[0] << " [options]" << endl;
             cout << "Options:" << endl;
             cout << "  --path FILE       Shared path file (default: ../data/default_data/shared_path.txt)" << endl;
-            cout << "  --model FILE      Latest model\file (default: ../data/default_data/ProD_CUD_SMP_updated.pm)" << endl;
+            cout << "  --model FILE      Model file (default: ../data/default_data/ProD_CUD_SMP.pm)" << endl;
             cout << "  --steps N         Maximum steps (default: 30)" << endl;
             cout << "  --interval MS     Interval between decisions in ms (default: 3000)" << endl;
             cout << "  --help            Show this help" << endl;
@@ -302,7 +321,7 @@ int main(int argc, char* argv[]) {
     }
     
     // 如果指定了pm文件但没有指定path文件，则在pm文件所在目录生成path文件
-    if (model_file != "../data/default_data/ProD_CUD_SMP_updated.pm" && path_file == "../data/default_data/shared_path.txt") {
+    if (model_file != "../data/default_data/ProD_CUD_SMP.pm" && path_file == "../data/default_data/shared_path.txt") {
         // 获取pm文件的目录路径
         size_t last_slash = model_file.find_last_of("/\\");
         string model_dir = (last_slash != string::npos) ? model_file.substr(0, last_slash + 1) : "./";
@@ -312,13 +331,19 @@ int main(int argc, char* argv[]) {
         if (last_dot != string::npos) {
             model_base = model_base.substr(0, last_dot);
         }
-        // 移除_updated后缀
-        size_t updated_pos = model_base.find("_updated");
-        if (updated_pos != string::npos) {
-            model_base = model_base.substr(0, updated_pos);
-        }
         // 设置path文件路径
         path_file = model_dir + model_base + "_path.txt";
+        
+        // 如果path文件已存在，删除它以确保覆盖
+        ifstream check_file(path_file);
+        if (check_file.good()) {
+            check_file.close();
+            if (remove(path_file.c_str()) == 0) {
+                cout << "[Agent] Removed existing path file: " << path_file << endl;
+            } else {
+                cout << "[Agent] Warning: Failed to remove existing path file: " << path_file << endl;
+            }
+        }
     }
     
     // 启动日志记录到model文件所在目录

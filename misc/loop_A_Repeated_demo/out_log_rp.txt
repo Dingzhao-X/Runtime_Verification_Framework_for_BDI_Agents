@@ -1,0 +1,68 @@
+=== Log Started ===
+Log file: ../data/loop_test/out_log.txt
+===================
+
+SCENARIO A: Integrated Verification
+========================================
+STEP 1: Running initial PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+✓ Initial verification completed with 4 results
+
+STEP 2: Converting TRA to PRISM model...
+✓ PRISM model generated: ../data/loop_test/loop_test.pm
+
+STEP 3: Using provided simulation path...
+✓ Using simulation path: ../data/loop_test/loop_test_path.txt
+
+STEP 4: Updating transition probabilities based on observed path...
+[TraUpdater] Extracted 12 states from path
+[TraUpdater] First occurrence transitions: 6 (from 12 total states)
+[TraUpdater] Standard processing completed: ../data/loop_test/loop_test_updated.tra
+✓ Transition probabilities updated: ../data/loop_test/loop_test_updated.tra
+
+STEP 5: Running final verification with updated model...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+✓ Final verification completed with 4 results
+
+SCENARIO A COMPLETED SUCCESSFULLY
+========================================
+
+================================================================================
+                    VERIFICATION RESULTS COMPARISON
+================================================================================
+
+Simulation Path Summary:
+Path (12 states): 0 → 1 → 2 → 3 → 1 → 2 → 3 → 1 → 2 → 4 → 6 → 7
+--------------------------------------------------------------------------------
+
+Probability Comparison:
+================================================================================
+Query: P[ F "branch_A" ]
+  Original: 0.50420155219968 
+  Updated:  1.0 
+  Change:   +0.4957984478003200
+
+Query: P[ F "branch_B" ]
+  Original: 0.4736839101945113 
+  Updated:  0.0 
+  Change:   -0.4736839101945113
+
+Query: P[ F "final_success" ]
+  Original: 1.0 
+  Updated:  0.0 
+  Change:   -1.0000000000000000
+
+Query: P[ F "loop_state" ]
+  Original: 1.0 
+  Updated:  1.0 
+  Change:   +0.0000000000000000
+
+================================================================================
+Total original results: 4
+Total updated results: 4
+================================================================================
+
+
+=== Log Ended ===

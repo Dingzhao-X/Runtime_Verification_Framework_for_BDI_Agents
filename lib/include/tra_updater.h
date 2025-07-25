@@ -29,6 +29,9 @@ private:
     // 生成第一次出现状态的转移映射（用于重复状态处理）
     std::map<int, int> generateFirstOccurrenceTransitions(const std::vector<int>& path_states);
     
+    // 生成最后一次出现状态的转移映射（用于不使用--repeated参数）
+    std::map<int, int> generateLastOccurrenceTransitions(const std::vector<int>& path_states);
+    
     // 处理TRA文件更新（标准方式，不处理重复状态）
     bool processTraFileStandard(const std::string& tra_file, const std::string& output_file,
                                const std::map<int, int>& real_trans, const std::set<int>& from_in_path);

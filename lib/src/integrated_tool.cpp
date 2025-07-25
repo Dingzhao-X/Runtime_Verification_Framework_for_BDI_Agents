@@ -152,67 +152,36 @@ void IntegratedTool::displayResults(const ScenarioAResult& result) {
         std::cout << std::string(80, '-') << std::endl;
     }
     
-    // 准备对比显示
     std::cout << "\nProbability Comparison:" << std::endl;
-    std::cout << std::left << std::setw(45) << "PCTL Query" 
-             << std::setw(25) << "Original" 
-             << std::setw(25) << "Updated" 
-             << "Change" << std::endl;
-    std::cout << std::string(80, '-') << std::endl;
+    std::cout << std::string(80, '=') << std::endl;
     
-    // 遍历所有查询进行对比
+    // 遍历所有查询进行对比 - 使用多行格式
     for (const auto& [query, original_prob] : result.original_verification.probabilities) {
-        std::string updated_prob = "N/A";
-        std::string change = "N/A";
+        std::cout << "Query: " << query << std::endl;
+        std::cout << "  Original: " << original_prob << std::endl;
         
         // 查找对应的更新后概率
         auto it = result.updated_verification.probabilities.find(query);
         if (it != result.updated_verification.probabilities.end()) {
-            updated_prob = it->second;
+            std::cout << "  Updated:  " << it->second << std::endl;
             
             // 计算变化量（如果都是数字）
             try {
                 double orig_val = std::stod(original_prob);
-                double upd_val = std::stod(updated_prob);
+                double upd_val = std::stod(it->second);
                 double diff = upd_val - orig_val;
                 
-                std::ostringstream change_stream;
-                change_stream << std::fixed << std::setprecision(16);
-                if (diff >= 0) change_stream << "+";
-                change_stream << diff;
-                change = change_stream.str();
+                std::cout << "  Change:   " << std::fixed << std::setprecision(16) 
+                         << (diff >= 0 ? "+" : "") << diff << std::endl;
             } catch (const std::exception&) {
-                // 如果不能转换为数字，保持"N/A"
+                std::cout << "  Change:   N/A" << std::endl;
             }
+        } else {
+            std::cout << "  Updated:  N/A" << std::endl;
+            std::cout << "  Change:   N/A" << std::endl;
         }
         
-        // 截断过长的查询名称
-        std::string display_query = query;
-        if (display_query.length() > 47) {
-            display_query = display_query.substr(0, 44) + "...";
-        }
-        
-        std::cout << std::left << std::setw(45) << display_query
-                 << std::setw(25) << original_prob
-                 << std::setw(25) << updated_prob
-                 << change << std::endl;
-    }
-    
-    // 显示仅在更新后结果中出现的查询
-    for (const auto& [query, updated_prob] : result.updated_verification.probabilities) {
-        if (result.original_verification.probabilities.find(query) == 
-            result.original_verification.probabilities.end()) {
-            
-            std::string display_query = query;
-            if (display_query.length() > 47) {
-                display_query = display_query.substr(0, 44) + "...";
-            }
-            
-            std::cout << std::left << std::setw(45) << display_query
-                     << std::setw(25) << "N/A"
-                     << std::setw(25) << updated_prob
-                     << "NEW" << std::endl;
-        }
+        std::cout << std::endl;  // 空行分隔每个查询
     }
     
     std::cout << std::string(80, '=') << std::endl;

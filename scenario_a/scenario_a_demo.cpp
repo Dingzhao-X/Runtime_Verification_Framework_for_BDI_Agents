@@ -56,9 +56,9 @@ int main(int argc, char *argv[]) {
 
     // 启动日志记录到tra文件所在目录
     std::string log_directory = TraProcessor::LogManager::extractDirectoryPath(tra_file);
-    if (!TraProcessor::LogManager::startLogging(log_directory)) {
-        std::cerr << "Warning: Failed to start logging to " << log_directory << std::endl;
-    }
+     if (!TraProcessor::LogManager::startLogging(log_directory)) {
+         std::cerr << "Warning: Failed to start logging to " << log_directory << std::endl;
+     }
 
     // 创建集成工具并运行场景A
     TraProcessor::IntegratedTool tool;
