@@ -1,5 +1,0 @@
-action step s
-- 0 0
-tra_model 1 1
-tra_model 2 4
-tra_model 3 5

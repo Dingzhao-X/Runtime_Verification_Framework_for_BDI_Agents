@@ -1,6 +1,5 @@
 # 论文简单框架
-Run-time verification for an autonomous agent 
-Essentially, it involves on developing an automated tool that can update the current info in some standard format based on an input that is also based on the previously mentioned format.
+
 ------
 
 ##  Introduction（10%）

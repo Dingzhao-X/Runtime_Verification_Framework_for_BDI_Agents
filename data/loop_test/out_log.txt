@@ -16,8 +16,8 @@ STEP 3: Using provided simulation path...
 ✓ Using simulation path: ../data/loop_test/loop_test_path.txt
 
 STEP 4: Updating transition probabilities based on observed path...
-[TraUpdater] Extracted 12 states from path
-[TraUpdater] First occurrence transitions: 6 (from 12 total states)
+[TraUpdater] Extracted 7 states from path
+[TraUpdater] Last occurrence transitions: 6 (from 7 total states)
 [TraUpdater] Standard processing completed: ../data/loop_test/loop_test_updated.tra
 ✓ Transition probabilities updated: ../data/loop_test/loop_test_updated.tra
 
@@ -34,7 +34,7 @@ SCENARIO A COMPLETED SUCCESSFULLY
 ================================================================================
 
 Simulation Path Summary:
-Path (12 states): 0 → 1 → 2 → 3 → 1 → 2 → 3 → 1 → 2 → 4 → 6 → 7
+Path (7 states): 0 → 1 → 2 → 3 → 5 → 6 → 7
 --------------------------------------------------------------------------------
 
 Probability Comparison:
@@ -46,13 +46,13 @@ Query: P[ F "branch_A" ]
 
 Query: P[ F "branch_B" ]
   Original: 0.4736839101945113 
-  Updated:  0.0 
-  Change:   -0.4736839101945113
+  Updated:  1.0 
+  Change:   +0.5263160898054887
 
 Query: P[ F "final_success" ]
   Original: 1.0 
-  Updated:  0.0 
-  Change:   -1.0000000000000000
+  Updated:  1.0 
+  Change:   +0.0000000000000000
 
 Query: P[ F "loop_state" ]
   Original: 1.0 

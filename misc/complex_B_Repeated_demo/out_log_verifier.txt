@@ -1,0 +1,166 @@
+=== Log Started ===
+Log file: ../data/complex_test/out_log_verifier.txt
+===================
+
+Configuration:
+  Path file: ../data/complex_test/complex_test_path.txt
+  TRA file: ../data/complex_test/complex_test.tra
+  CSL file: ../data/complex_test/complex_test.csl
+  Check interval: 1000ms
+  Handle repeated states: Yes
+
+[Verifier] Runtime Verifier initialized.
+[Verifier] Monitoring: ../data/complex_test/complex_test_path.txt
+[Verifier] Original TRA: ../data/complex_test/complex_test.tra
+[Verifier] CSL Properties: ../data/complex_test/complex_test.csl
+[Verifier] Output directory: ../data/complex_test/
+[Verifier] Performing initial verification...
+[Verifier] No existing path data found, running baseline verification...
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/complex_test/complex_test_updated.pm
+[Verifier] Original PRISM model file generated with lock: ../data/complex_test/complex_test.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 7 results
+[Verifier] Verification completed with 7 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "final_state" ]
+  Current: 1.0  (first calculation)
+
+Query: P[ F "left_branch"&"final_state" ]
+  Current: 0.0  (first calculation)
+
+Query: P[ F "loop_left" ]
+  Current: 0.5  (first calculation)
+
+Query: P[ F "loop_right" ]
+  Current: 0.5  (first calculation)
+
+Query: P[ F "middle_failure" ]
+  Current: 0.08409088612597759  (first calculation)
+
+Query: P[ F "middle_success" ]
+  Current: 0.41590894188134403  (first calculation)
+
+Query: P[ F "right_branch"&"final_state" ]
+  Current: 0.0  (first calculation)
+
+============================================================
+
+[Verifier] Initial verification completed.
+
+[Verifier] Starting real-time monitoring (initial verification already completed)...
+[Verifier] Check interval: 1000ms
+[Verifier] Press Ctrl+C to stop.
+
+[Verifier] New path data detected! Processing...
+[Verifier] Updating TRA file based on observed path...
+[TraUpdater] Extracted 2 states from path
+[TraUpdater] First occurrence transitions: 1 (from 2 total states)
+[TraUpdater] Standard processing completed: ../data/complex_test/complex_test_updated.tra
+[Verifier] TRA file updated: ../data/complex_test/complex_test_updated.tra
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/complex_test/complex_test_updated.pm
+[Verifier] Original PRISM model file generated with lock: ../data/complex_test/complex_test.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 7 results
+[Verifier] Verification completed with 7 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "final_state" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "left_branch"&"final_state" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "loop_left" ]
+  Before: 0.5 
+  After:  0.0 
+  Change: -0.5000000000000000
+
+Query: P[ F "loop_right" ]
+  Before: 0.5 
+  After:  1.0 
+  Change: +0.5000000000000000
+
+Query: P[ F "middle_failure" ]
+  Before: 0.08409088612597759 
+  After:  0.0 
+  Change: -0.0840908861259776
+
+Query: P[ F "middle_success" ]
+  Before: 0.41590894188134403 
+  After:  0.0 
+  Change: -0.4159089418813440
+
+Query: P[ F "right_branch"&"final_state" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+============================================================
+
+[Verifier] New path data detected! Processing...
+[Verifier] Updating TRA file based on observed path...
+[TraUpdater] Extracted 7 states from path
+[TraUpdater] First occurrence transitions: 4 (from 7 total states)
+[TraUpdater] Standard processing completed: ../data/complex_test/complex_test_updated.tra
+[Verifier] TRA file updated: ../data/complex_test/complex_test_updated.tra
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/complex_test/complex_test_updated.pm
+[Verifier] Original PRISM model file generated with lock: ../data/complex_test/complex_test.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 7 results
+[Verifier] Verification completed with 7 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "final_state" ]
+  Before: 1.0 
+  After:  0.0 
+  Change: -1.0000000000000000
+
+Query: P[ F "left_branch"&"final_state" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "loop_left" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "loop_right" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "middle_failure" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "middle_success" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "right_branch"&"final_state" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+============================================================
+

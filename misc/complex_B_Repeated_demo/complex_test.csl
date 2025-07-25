@@ -1,0 +1,15 @@
+P=? [ F "final_state" ];
+P=? [ F "left_branch"&"final_state" ];
+P=? [ F "right_branch"&"final_state" ];
+P=? [ F "loop_left" ];
+P=? [ F "loop_right" ];
+P=? [ F "middle_success" ];
+P=? [ F "middle_failure" ];
+
+label "final_state" = x=14;
+label "left_branch" = x=1|x=3|x=4|x=7|x=8|x=9;
+label "right_branch" = x=2|x=5|x=6|x=10|x=11;
+label "loop_left" = x=1;
+label "loop_right" = x=2;
+label "middle_success" = x=12;
+label "middle_failure" = x=13; 
