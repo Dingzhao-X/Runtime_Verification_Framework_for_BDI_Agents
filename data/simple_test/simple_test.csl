@@ -1,0 +1,7 @@
+P=? [ F "success" ];
+P=? [ F "intermediate" ];
+P=? [ F "failure" ];
+
+label "success" = x=5;
+label "intermediate" = x=3|x=4;
+label "failure" = x=1|x=2; 

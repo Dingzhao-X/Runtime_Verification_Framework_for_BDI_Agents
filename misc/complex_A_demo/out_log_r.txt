@@ -1,0 +1,58 @@
+=== Log Started ===
+Log file: ../data/complex_test/out_log.txt
+===================
+
+SCENARIO A: Integrated Verification
+========================================
+STEP 1: Running initial PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 7 results
+✓ Initial verification completed with 7 results
+
+STEP 2: Converting TRA to PRISM model...
+✓ PRISM model generated: ../data/complex_test/complex_test.pm
+
+STEP 3: Provided path file not found, generating new path...
+[PrismVerifier] Generating simulation path...
+[PrismVerifier] Simulation path generated: ../data/complex_test/complex_test_path.txt
+✓ Simulation path generated: ../data/complex_test/complex_test_path.txt
+
+STEP 4: Updating transition probabilities based on observed path...
+[TraUpdater] Extracted 7 states from path
+[TraUpdater] First occurrence transitions: 5 (from 7 total states)
+[TraUpdater] Standard processing completed: ../data/complex_test/complex_test_updated.tra
+✓ Transition probabilities updated: ../data/complex_test/complex_test_updated.tra
+
+STEP 5: Running final verification with updated model...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 7 results
+✓ Final verification completed with 7 results
+
+SCENARIO A COMPLETED SUCCESSFULLY
+========================================
+
+================================================================================
+                    VERIFICATION RESULTS COMPARISON
+================================================================================
+
+Simulation Path Summary:
+Path (7 states): 0 → 2 → 5 → 2 → 6 → 11 → 14
+--------------------------------------------------------------------------------
+
+Probability Comparison:
+PCTL Query                                   Original                 Updated                  Change
+--------------------------------------------------------------------------------
+P[ F "final_state" ]                         1.0                      0.0                      -1.0000000000000000
+P[ F "left_branch"&"final_state" ]           0.0                      0.0                      +0.0000000000000000
+P[ F "loop_left" ]                           0.5                      0.0                      -0.5000000000000000
+P[ F "loop_right" ]                          0.5                      1.0                      +0.5000000000000000
+P[ F "middle_failure" ]                      0.08409088612597759      0.0                      -0.0840908861259776
+P[ F "middle_success" ]                      0.41590894188134403      0.0                      -0.4159089418813440
+P[ F "right_branch"&"final_state" ]          0.0                      0.0                      +0.0000000000000000
+================================================================================
+Total original results: 7
+Total updated results: 7
+================================================================================
+
+
+=== Log Ended ===

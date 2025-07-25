@@ -1,0 +1,618 @@
+=== Log Started ===
+Log file: ../data/loop_test/out_log_verifier.txt
+===================
+
+Configuration:
+  Path file: ../data/loop_test/loop_test_path.txt
+  TRA file: ../data/loop_test/loop_test.tra
+  CSL file: ../data/loop_test/loop_test.csl
+  Check interval: 2000ms
+  Handle repeated states: Yes
+
+[Verifier] Runtime Verifier initialized.
+[Verifier] Monitoring: ../data/loop_test/loop_test_path.txt
+[Verifier] Original TRA: ../data/loop_test/loop_test.tra
+[Verifier] CSL Properties: ../data/loop_test/loop_test.csl
+[Verifier] Output directory: ../data/loop_test/
+[Verifier] Performing initial verification...
+[Verifier] No existing path data found, running baseline verification...
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/loop_test/loop_test_updated.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+[Verifier] Verification completed with 4 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "branch_A" ]
+  Current: 0.50420155219968  (first calculation)
+
+Query: P[ F "branch_B" ]
+  Current: 0.4736839101945113  (first calculation)
+
+Query: P[ F "final_success" ]
+  Current: 1.0  (first calculation)
+
+Query: P[ F "loop_state" ]
+  Current: 1.0  (first calculation)
+
+============================================================
+
+[Verifier] Initial verification completed.
+
+[Verifier] Starting real-time monitoring (initial verification already completed)...
+[Verifier] Check interval: 2000ms
+[Verifier] Press Ctrl+C to stop.
+
+[Verifier] New path data detected! Processing...
+[Verifier] Updating TRA file based on observed path...
+[TraUpdater] Extracted 2 states from path
+[TraUpdater] First occurrence transitions: 1 (from 2 total states)
+[TraUpdater] Standard processing completed: ../data/loop_test/loop_test_updated.tra
+[Verifier] TRA file updated: ../data/loop_test/loop_test_updated.tra
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/loop_test/loop_test_updated.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+[Verifier] Verification completed with 4 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "branch_A" ]
+  Before: 0.50420155219968 
+  After:  0.50420155219968 
+  Change: +0.0000000000000000
+
+Query: P[ F "branch_B" ]
+  Before: 0.4736839101945113 
+  After:  0.4736839101945113 
+  Change: +0.0000000000000000
+
+Query: P[ F "final_success" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "loop_state" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+============================================================
+
+[Verifier] New path data detected! Processing...
+[Verifier] Updating TRA file based on observed path...
+[TraUpdater] Extracted 4 states from path
+[TraUpdater] First occurrence transitions: 3 (from 4 total states)
+[TraUpdater] Standard processing completed: ../data/loop_test/loop_test_updated.tra
+[Verifier] TRA file updated: ../data/loop_test/loop_test_updated.tra
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/loop_test/loop_test_updated.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+[Verifier] Verification completed with 4 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "branch_A" ]
+  Before: 0.50420155219968 
+  After:  1.0 
+  Change: +0.4957984478003200
+
+Query: P[ F "branch_B" ]
+  Before: 0.4736839101945113 
+  After:  1.0 
+  Change: +0.5263160898054887
+
+Query: P[ F "final_success" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "loop_state" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+============================================================
+
+[Verifier] New path data detected! Processing...
+[Verifier] Updating TRA file based on observed path...
+[TraUpdater] Extracted 7 states from path
+[TraUpdater] First occurrence transitions: 4 (from 7 total states)
+[TraUpdater] Standard processing completed: ../data/loop_test/loop_test_updated.tra
+[Verifier] TRA file updated: ../data/loop_test/loop_test_updated.tra
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/loop_test/loop_test_updated.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+[Verifier] Verification completed with 4 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "branch_A" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "branch_B" ]
+  Before: 1.0 
+  After:  0.0 
+  Change: -1.0000000000000000
+
+Query: P[ F "final_success" ]
+  Before: 1.0 
+  After:  0.0 
+  Change: -1.0000000000000000
+
+Query: P[ F "loop_state" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+============================================================
+
+[Verifier] New path data detected! Processing...
+[Verifier] Updating TRA file based on observed path...
+[TraUpdater] Extracted 9 states from path
+[TraUpdater] First occurrence transitions: 4 (from 9 total states)
+[TraUpdater] Standard processing completed: ../data/loop_test/loop_test_updated.tra
+[Verifier] TRA file updated: ../data/loop_test/loop_test_updated.tra
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/loop_test/loop_test_updated.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+[Verifier] Verification completed with 4 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "branch_A" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "branch_B" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "final_success" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "loop_state" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+============================================================
+
+[Verifier] New path data detected! Processing...
+[Verifier] Updating TRA file based on observed path...
+[TraUpdater] Extracted 11 states from path
+[TraUpdater] First occurrence transitions: 4 (from 11 total states)
+[TraUpdater] Standard processing completed: ../data/loop_test/loop_test_updated.tra
+[Verifier] TRA file updated: ../data/loop_test/loop_test_updated.tra
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/loop_test/loop_test_updated.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+[Verifier] Verification completed with 4 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "branch_A" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "branch_B" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "final_success" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "loop_state" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+============================================================
+
+[Verifier] New path data detected! Processing...
+[Verifier] Updating TRA file based on observed path...
+[TraUpdater] Extracted 13 states from path
+[TraUpdater] First occurrence transitions: 4 (from 13 total states)
+[TraUpdater] Standard processing completed: ../data/loop_test/loop_test_updated.tra
+[Verifier] TRA file updated: ../data/loop_test/loop_test_updated.tra
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/loop_test/loop_test_updated.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+[Verifier] Verification completed with 4 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "branch_A" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "branch_B" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "final_success" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "loop_state" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+============================================================
+
+[Verifier] New path data detected! Processing...
+[Verifier] Updating TRA file based on observed path...
+[TraUpdater] Extracted 15 states from path
+[TraUpdater] First occurrence transitions: 4 (from 15 total states)
+[TraUpdater] Standard processing completed: ../data/loop_test/loop_test_updated.tra
+[Verifier] TRA file updated: ../data/loop_test/loop_test_updated.tra
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/loop_test/loop_test_updated.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+[Verifier] Verification completed with 4 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "branch_A" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "branch_B" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "final_success" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "loop_state" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+============================================================
+
+[Verifier] New path data detected! Processing...
+[Verifier] Updating TRA file based on observed path...
+[TraUpdater] Extracted 17 states from path
+[TraUpdater] First occurrence transitions: 4 (from 17 total states)
+[TraUpdater] Standard processing completed: ../data/loop_test/loop_test_updated.tra
+[Verifier] TRA file updated: ../data/loop_test/loop_test_updated.tra
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/loop_test/loop_test_updated.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+[Verifier] Verification completed with 4 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "branch_A" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "branch_B" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "final_success" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "loop_state" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+============================================================
+
+[Verifier] New path data detected! Processing...
+[Verifier] Updating TRA file based on observed path...
+[TraUpdater] Extracted 19 states from path
+[TraUpdater] First occurrence transitions: 4 (from 19 total states)
+[TraUpdater] Standard processing completed: ../data/loop_test/loop_test_updated.tra
+[Verifier] TRA file updated: ../data/loop_test/loop_test_updated.tra
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/loop_test/loop_test_updated.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+[Verifier] Verification completed with 4 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "branch_A" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "branch_B" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "final_success" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "loop_state" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+============================================================
+
+[Verifier] New path data detected! Processing...
+[Verifier] Updating TRA file based on observed path...
+[TraUpdater] Extracted 21 states from path
+[TraUpdater] First occurrence transitions: 4 (from 21 total states)
+[TraUpdater] Standard processing completed: ../data/loop_test/loop_test_updated.tra
+[Verifier] TRA file updated: ../data/loop_test/loop_test_updated.tra
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/loop_test/loop_test_updated.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+[Verifier] Verification completed with 4 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "branch_A" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "branch_B" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "final_success" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "loop_state" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+============================================================
+
+[Verifier] New path data detected! Processing...
+[Verifier] Updating TRA file based on observed path...
+[TraUpdater] Extracted 23 states from path
+[TraUpdater] First occurrence transitions: 4 (from 23 total states)
+[TraUpdater] Standard processing completed: ../data/loop_test/loop_test_updated.tra
+[Verifier] TRA file updated: ../data/loop_test/loop_test_updated.tra
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/loop_test/loop_test_updated.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+[Verifier] Verification completed with 4 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "branch_A" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "branch_B" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "final_success" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "loop_state" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+============================================================
+
+[Verifier] New path data detected! Processing...
+[Verifier] Updating TRA file based on observed path...
+[TraUpdater] Extracted 26 states from path
+[TraUpdater] First occurrence transitions: 4 (from 26 total states)
+[TraUpdater] Standard processing completed: ../data/loop_test/loop_test_updated.tra
+[Verifier] TRA file updated: ../data/loop_test/loop_test_updated.tra
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/loop_test/loop_test_updated.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+[Verifier] Verification completed with 4 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "branch_A" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "branch_B" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "final_success" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "loop_state" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+============================================================
+
+[Verifier] New path data detected! Processing...
+[Verifier] Updating TRA file based on observed path...
+[TraUpdater] Extracted 28 states from path
+[TraUpdater] First occurrence transitions: 4 (from 28 total states)
+[TraUpdater] Standard processing completed: ../data/loop_test/loop_test_updated.tra
+[Verifier] TRA file updated: ../data/loop_test/loop_test_updated.tra
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/loop_test/loop_test_updated.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+[Verifier] Verification completed with 4 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "branch_A" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "branch_B" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "final_success" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "loop_state" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+============================================================
+
+[Verifier] New path data detected! Processing...
+[Verifier] Updating TRA file based on observed path...
+[TraUpdater] Extracted 30 states from path
+[TraUpdater] First occurrence transitions: 4 (from 30 total states)
+[TraUpdater] Standard processing completed: ../data/loop_test/loop_test_updated.tra
+[Verifier] TRA file updated: ../data/loop_test/loop_test_updated.tra
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/loop_test/loop_test_updated.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+[Verifier] Verification completed with 4 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "branch_A" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "branch_B" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "final_success" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "loop_state" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+============================================================
+
+[Verifier] New path data detected! Processing...
+[Verifier] Updating TRA file based on observed path...
+[TraUpdater] Extracted 31 states from path
+[TraUpdater] First occurrence transitions: 4 (from 31 total states)
+[TraUpdater] Standard processing completed: ../data/loop_test/loop_test_updated.tra
+[Verifier] TRA file updated: ../data/loop_test/loop_test_updated.tra
+[Verifier] Generating PRISM model file...
+[Verifier] PRISM model file generated with lock: ../data/loop_test/loop_test_updated.pm
+[Verifier] Running PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 4 results
+[Verifier] Verification completed with 4 results
+
+============================================================
+       PROBABILITY UPDATE COMPARISON
+============================================================
+Query: P[ F "branch_A" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "branch_B" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "final_success" ]
+  Before: 0.0 
+  After:  0.0 
+  Change: +0.0000000000000000
+
+Query: P[ F "loop_state" ]
+  Before: 1.0 
+  After:  1.0 
+  Change: +0.0000000000000000
+
+============================================================
+

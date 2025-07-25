@@ -1,0 +1,11 @@
+Action Step State
+act 0 0
+act 1 1
+act 2 2
+act 3 4
+act 4 1
+act 5 2
+act 6 3
+act 7 5
+act 8 6
+act 9 7

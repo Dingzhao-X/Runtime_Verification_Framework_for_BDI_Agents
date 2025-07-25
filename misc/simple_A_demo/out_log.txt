@@ -1,0 +1,52 @@
+=== Log Started ===
+Log file: ../data/simple_test/out_log.txt
+===================
+
+SCENARIO A: Integrated Verification
+========================================
+STEP 1: Running initial PRISM verification...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 3 results
+✓ Initial verification completed with 3 results
+
+STEP 2: Converting TRA to PRISM model...
+✓ PRISM model generated: ../data/simple_test/simple_test.pm
+
+STEP 3: Using provided simulation path...
+✓ Using simulation path: ../data/simple_test/simple_test_path.txt
+
+STEP 4: Updating transition probabilities based on observed path...
+[TraUpdater] Extracted 4 states from path
+[TraUpdater] First occurrence transitions: 3 (from 4 total states)
+[TraUpdater] Standard processing completed: ../data/simple_test/simple_test_updated.tra
+✓ Transition probabilities updated: ../data/simple_test/simple_test_updated.tra
+
+STEP 5: Running final verification with updated model...
+[PrismVerifier] Running PRISM verification...
+[PrismVerifier] Verification completed successfully with 3 results
+✓ Final verification completed with 3 results
+
+SCENARIO A COMPLETED SUCCESSFULLY
+========================================
+
+================================================================================
+                    VERIFICATION RESULTS COMPARISON
+================================================================================
+
+Simulation Path Summary:
+Path (4 states): 0 → 1 → 4 → 5
+--------------------------------------------------------------------------------
+
+Probability Comparison:
+PCTL Query                                   Original                 Updated                  Change
+--------------------------------------------------------------------------------
+P[ F "failure" ]                             1.0                      1.0                      +0.0000000000000000
+P[ F "intermediate" ]                        0.9400000000000001       1.0                      +0.0599999999999999
+P[ F "success" ]                             1.0                      1.0                      +0.0000000000000000
+================================================================================
+Total original results: 3
+Total updated results: 3
+================================================================================
+
+
+=== Log Ended ===
